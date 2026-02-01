@@ -19,12 +19,12 @@ class AppWriteConfig {
                 password: password,
                 name: name
             });
-            if (user) {
-                this.login(email, password);
-            }
-            console.log(user)
+            // if (user) {
+            //     this.login(email, password);
+            // }
+            // console.log(user)
         } catch (e) {
-            console.error(e)
+            throw e;
         }
     }
 
@@ -49,6 +49,7 @@ class AppWriteConfig {
 
             console.error(e);
             console.log("No active session");
+            throw e;
         }
     }
 
