@@ -126,6 +126,7 @@ class DatabaseBuckertsService {
     }
 
     getFilePreview(fileId) {
+        console.log("working  getFilePreview() "+fileId)
         const value = this.bucket.getFilePreview(
             conf.appwriteBucketId,
             fileId

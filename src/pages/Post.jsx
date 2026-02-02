@@ -11,10 +11,17 @@ export default function Post() {
     const navigate = useNavigate();
 
     const userData = JSON.parse(useSelector((state) => state.auth.userData));
-    console.log("userId in PostCard "+userData.$id)
+    console.log("userId in PostCard "+userData.$id )
 
-    const isAuthor = post && userData ? post.userId === userData.$id : false;
+    console.log("post wala Data "+JSON.stringify(post))
 
+    const isAuthor = post && userData ? (post.userId === userData.$id) : false;
+    console.log("Author is : "+isAuthor)
+    if( post && userData){
+        console.log("userId "+post.userId+ " "+userData.$id)
+    }
+    console.log("post "+ JSON.stringify(post) + "\n userData:  "+ JSON.stringify(userData) )
+    console.log("post "+ JSON.stringify(post) + "\n userData:  "+ JSON.stringify(userData) )
     useEffect(() => {
         if (slug) {
             appwriteService.getPost(slug).then((post) => {

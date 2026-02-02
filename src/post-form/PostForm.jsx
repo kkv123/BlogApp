@@ -19,7 +19,7 @@ export default function PostForm({ post }) {
 
     const navigate = useNavigate();
     const userData = useSelector((state) => state.auth.userData);
-
+    console.log("user-data is "+JSON.parse(userData).$id)
     const submit = async (data) => {
         console.log(data);
         if (post) {
@@ -48,7 +48,7 @@ export default function PostForm({ post }) {
                 const payload = {
                     ...data,
                     featuredImage: fileId,
-                    userId: ID.unique()   // actual logged-in user ID
+                    userId: JSON.parse(userData).$id   // actual logged-in user ID
                 };
                 console.log(payload)
                 const dbPost = await appwriteService.createPost(payload);
