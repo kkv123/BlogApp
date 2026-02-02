@@ -1,7 +1,7 @@
 
 import { Client, Databases, ID, Query, Storage } from "appwrite"
-import {conf} from "../conf/conf";
- 
+import { conf } from "../conf/conf";
+
 
 class DatabaseBuckertsService {
     client = new Client();
@@ -15,7 +15,7 @@ class DatabaseBuckertsService {
         this.bucket = new Storage(this.client);
     }
 
-    async createPost(title, content, featuredImage, status, userId, slug) {
+    async createPost({ title, content, featuredImage, status, userId, slug }) {
         try {
             const post = await this.database.createDocument(
                 conf.appwriteDatabaseId,   // Database ID
@@ -39,8 +39,8 @@ class DatabaseBuckertsService {
     async updatePost(slug, { title, content, featuredImage, status }) {
         try {
             const updatedPost = await this.database.updateDocument(
-                 conf.appwriteDatabaseId,   // Database ID
-                conf.appwriteTableId, 
+                conf.appwriteDatabaseId,   // Database ID
+                conf.appwriteTableId,
                 slug,
                 {
                     title,
@@ -59,8 +59,8 @@ class DatabaseBuckertsService {
     async deletePost(slug) {
         try {
             await this.database.deleteDocument(
-                 conf.appwriteDatabaseId,   // Database ID
-                conf.appwriteTableId, 
+                conf.appwriteDatabaseId,   // Database ID
+                conf.appwriteTableId,
                 slug
             );
             console.log("Post deleted:", slug);
@@ -73,25 +73,25 @@ class DatabaseBuckertsService {
 
     async getPost(slug) {
         try {
-            console.log("slug is : "+slug)
+            console.log("slug is : " + slug)
             const post = await this.database.getDocument(
-              conf.appwriteDatabaseId,   // Database ID
-                conf.appwriteTableId, 
+                conf.appwriteDatabaseId,   // Database ID
+                conf.appwriteTableId,
                 slug
             );
             return post;
         } catch (error) {
             console.error("Error fetching post:", error);
             return null;
-        }   
+        }
     }
 
     async listPosts() {
         try {
             const posts = await this.database.listDocuments(
                 conf.appwriteDatabaseId,   // Database ID
-                conf.appwriteTableId, 
-                [Query.equal("status", "active"), Query.orderDesc("createdAt")]
+                conf.appwriteTableId,
+                [Query.equal("status", "active"), Query.orderDesc("$createdAt")]
             );
             return posts.documents;
         } catch (error) {
@@ -100,13 +100,14 @@ class DatabaseBuckertsService {
         }
     }
 
-    async uploadImage(file) {
+    async uploadFile(file) {
         try {
             const response = await this.bucket.createFile(
                 conf.appwriteBucketId,
                 ID.unique(),
                 file
             );
+            console.log("File uploaded successfully");
             return response;
         } catch (error) {
             console.error("Error uploading image:", error);
@@ -121,8 +122,17 @@ class DatabaseBuckertsService {
         } catch (error) {
             console.error("Error deleting file:", error);
             return false;
-        }   
+        }
+    }
+
+    getFilePreview(fileId) {
+        console.log("working  getFilePreview() "+fileId)
+        const value = this.bucket.getFilePreview(
+            conf.appwriteBucketId,
+            fileId
+        )
+        console.log(value);
     }
 }
-const appwriteObj= new DatabaseBuckertsService()
+const appwriteObj = new DatabaseBuckertsService()
 export default appwriteObj;

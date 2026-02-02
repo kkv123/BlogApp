@@ -5,6 +5,7 @@ import { store } from './store/store.js'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { AuthLayout, Home, Login, SignUp, AllPost, AddPost, EditPost, Post } from './components/index.js';
+import TestingDB from './TestingDB.jsx'
 
 const router = createBrowserRouter([
   {
@@ -66,8 +67,9 @@ const router = createBrowserRouter([
   },
 ])
 createRoot(document.getElementById('root')).render(
+  // <TestingDB/>
   <Provider store={store}>
     <RouterProvider router={router} />
 
-  </Provider>,
+  </Provider>
 )
