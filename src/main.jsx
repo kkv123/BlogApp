@@ -64,7 +64,12 @@ const router = createBrowserRouter([
       },
     ],
   },
-])
+],
+  {
+    basename: "/myblog"   // ✅ must match vite.config.js base
+  }
+
+)
 createRoot(document.getElementById('root')).render(
   // <TestingDB/>
   <Provider store={store}>
