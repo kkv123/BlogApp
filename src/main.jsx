@@ -66,7 +66,7 @@ const router = createBrowserRouter([
   },
 ],
   {
-    basename: "/myblog"   // ✅ must match vite.config.js base
+    basename: "/BlogApp", // ✅ must match vite.config.js base
   }
 
 )
