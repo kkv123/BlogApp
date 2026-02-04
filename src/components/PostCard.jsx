@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import appwriteObj from "../appwrite/config";
 
 export default function PostCard({ $id, title, featuredImage }) {
+    console.log("Eneterd in PostCard() " + $id);
+    // console.log("Eneterd in PostCard() "+pis);
+
     return (
         <Link to={`/post/${$id}`}>
             <div className="w-full bg-grey-400 p-4">
@@ -9,7 +12,9 @@ export default function PostCard({ $id, title, featuredImage }) {
                     <img
                         src={`${appwriteObj.getFilePreview(featuredImage)}`}
                         alt="Post Img"
-                        className="w-full max-w-[600px] h-[300px] object-cover rounded-lg"
+                        className="w-full max-w-[600px] h-[300px] object-cover rounded-lg 
+                 border-4 border-black shadow-lg"
+
                     />
 
                 </div>
