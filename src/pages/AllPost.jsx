@@ -12,12 +12,10 @@ export default function AllPost() {
     useEffect(() => {
         try {
             appwriteObj.listPosts([]).then((post) => {
-
                 if (post) {
                     setPosts(post);
                 }
             });
-
         } catch (e) {
             console.log(e.message);
         }
@@ -29,15 +27,15 @@ export default function AllPost() {
     return (
         <div className="w-full py-8 bg-red" >
             <Container>
-                <div className="flex flex-wrap">
-                    {
-                        posts.map((post) => (
-                            <div key={post.$id} className="p-2 w-1/4">
-                                <PostCard {...post} />
-                            </div>
-                        ))
- 
-                    }
+                <div className="flex flex-wrap gap-5 items-center justify-center">
+                    {posts.map((post) => (
+                        <div
+                            key={post.$id}
+                            className="p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
+                        >
+                            <PostCard {...post} />
+                        </div>
+                    ))}
                 </div>
             </Container>
         </div>

@@ -46,8 +46,10 @@ export default function Post() {
         <div className="py-8">
             <Container>
                 <div
-                    className="relative border border-gray-700 rounded-xl p-4 w-full max-w-[1200px] 
-             bg-black md:bg-gray-900 shadow-lg flex flex-col md:flex-row gap-6 
+                    className="relative border border-gray-700 rounded-xl p-4 
+             w-full min-w-[350px] max-w-[1200px] 
+             bg-black md:bg-gray-900 shadow-lg 
+             flex flex-col md:flex-row gap-6 
              hover:shadow-xl transition-shadow duration-300"
                 >
                     {/* Image Section */}
