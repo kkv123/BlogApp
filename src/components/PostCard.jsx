@@ -7,18 +7,15 @@ export default function PostCard({ $id, title, featuredImage }) {
 
     return (
         <Link to={`/post/${$id}`}>
-            <div className="w-full bg-grey-400 p-4">
-                <div className="w-full justify-center">
+            <div className="min-w-[330px] bg-gray-400 p-4">
+                <div className="flex justify-center">
                     <img
-                        src={`${appwriteObj.getFilePreview(featuredImage)}`}
-                        alt="Post Img"
-                        className="w-full max-w-[600px] h-[300px] object-cover rounded-lg 
-                 border-4 border-black shadow-lg"
-
+                        src={appwriteObj.getFilePreview(featuredImage)}
+                        alt={title}
+                        className="w-full h-[300px] object-cover rounded-lg border-4 border-black shadow-lg"
                     />
-
                 </div>
-                <h1 className="text-xl text-bold">{title}</h1>
+                <h1 className="text-xl font-bold">{title}</h1>
             </div>
         </Link>
     )
