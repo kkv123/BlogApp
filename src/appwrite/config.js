@@ -58,6 +58,7 @@ class DatabaseBuckertsService {
 
     async deletePost(slug) {
         try {
+            console.log("deleting documnet with id "+slug);
             await this.database.deleteDocument(
                 conf.appwriteDatabaseId,   // Database ID
                 conf.appwriteTableId,
@@ -128,11 +129,12 @@ class DatabaseBuckertsService {
 
     getFilePreview(fileId) {
         console.log("working  getFilePreview() "+fileId)
-        const value = this.bucket.getFilePreview(
+        const value = this.bucket.getFileView(
             conf.appwriteBucketId,
             fileId
         )
         console.log(value);
+        return value;
     }
 }
 const appwriteObj = new DatabaseBuckertsService()
