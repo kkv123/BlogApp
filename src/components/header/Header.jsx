@@ -10,7 +10,6 @@ export default function Header() {
     const navigate = useNavigate();
     const navItems = [
         { name: "Home", path: "/", isActive: true },
-        // { name: "About", path: "/about", isActive: authStatus },
         { name: "Login", path: "/login", isActive: !authStatus },
         { name: "SignUp", path: "/signup", isActive: !authStatus },
         { name: "All Post", path: "/all-post", isActive: authStatus },
@@ -21,7 +20,7 @@ export default function Header() {
     return (
         <header className='py-3 shadow bg-gray-500'>
             <Container>
-                <nav className='flex'>
+                <nav className='flex items-center '>
                     <div className='mr-4'>
                         <Link to='/'>
                             <Logo width='70px' />
