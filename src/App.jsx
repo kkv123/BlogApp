@@ -14,9 +14,9 @@ function App() {
   useEffect(() => {
     const authData = authService.getAccount()
       .then((userData) => {
-        console.log("userData " + userData)
+        // console.log("userData " + userData)
         if (userData) {
-          console.log("userData true " + userData)
+          // console.log("userData true " + userData)
           dispatch(login({ userData }))
         } else {
           dispatch(logout())
@@ -24,7 +24,7 @@ function App() {
       })
       .finally(() => setLoading(false))
   }, [])
-  console.log("loading " + loading);
+  // console.log("loading " + loading);
   return !loading ? (
     <div className='min-h-screen flex flex-wrap content-between bg-gray-400 text-bold'>
       <div className='w-full block'>

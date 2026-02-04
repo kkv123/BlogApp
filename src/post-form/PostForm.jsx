@@ -16,13 +16,14 @@ export default function PostForm({ post }) {
             status: post?.status || "active",
         },
     });
-
+    
     const navigate = useNavigate();
     const userData = useSelector((state) => state.auth.userData);
-    console.log("user-data is "+JSON.parse(userData).$id)
+  
     const submit = async (data) => {
         console.log(data);
         if (post) {
+            console.log("working in editing mode .... ")
             const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
 
             if (file) {
@@ -43,7 +44,6 @@ export default function PostForm({ post }) {
 
 
             if (file) {
-                const parsedData = JSON.parse(userData);
                 const fileId = file.$id;
                 const payload = {
                     ...data,

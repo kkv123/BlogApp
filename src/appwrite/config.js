@@ -79,6 +79,7 @@ class DatabaseBuckertsService {
                 conf.appwriteTableId,
                 slug
             );
+            console.log("get Post DB () "+ post)
             return post;
         } catch (error) {
             console.error("Error fetching post:", error);
