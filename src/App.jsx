@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import authService from "./appwrite/auth";
 import { useEffect, useState } from "react";
 import { login } from "./store/authSlice";
-import Footer from "./components/footer/footer";
-import Header from "./components/header/header";
+import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
 import { Outlet } from "react-router-dom";
 import './index.css'
 
