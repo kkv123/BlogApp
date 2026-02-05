@@ -13,9 +13,9 @@ import LoginForm from "./LoginForm.jsx";
 import Select from "./Select.jsx";
 import SignUpForm from "./SignUpForm.jsx";
 import PostCard from "./PostCard.jsx";
-import Header from "./header/header.jsx";
+import Header from "./header/Header.jsx";
 import LogOutButton from "./header/LogoutBtn.jsx";
-import Footer from "./footer/footer.jsx";
+import Footer from "./footer/Footer.jsx";
 import Container from "../container/Container.jsx";
 import RTE from "./RTE.jsx";
 
