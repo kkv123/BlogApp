@@ -16,24 +16,21 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/login",
-        element: (
+        path: "/login", element: (
           <AuthLayout authentication={false}>
             <Login />
           </AuthLayout>
         ),
       },
       {
-        path: "/signup",
-        element: (
+        path: "/signup", element: (
           <AuthLayout authentication={false}>
             <SignUp />
           </AuthLayout>
         ),
       },
       {
-        path: "/all-post",
-        element: (
+        path: "/all-post",element: (
           <AuthLayout authentication>
             {" "}
             <AllPost />
@@ -41,8 +38,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/add-post",
-        element: (
+        path: "/add-post", element: (
           <AuthLayout authentication>
             {" "}
             <AddPost />
@@ -50,8 +46,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/edit-post/:slug",
-        element: (
+        path: "/edit-post/:slug",element: (
           <AuthLayout authentication>
             {" "}
             <EditPost />
@@ -66,7 +61,7 @@ const router = createBrowserRouter([
   },
 ],
   {
-    basename: "/BlogApp", // ✅ must match vite.config.js base
+    basename: "/blog", // ✅ must match vite.config.js base
   }
 
 )
