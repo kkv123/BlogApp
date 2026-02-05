@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/blog',   // must match router basename
+  base: '/',   // must match router basename
   build: {
     outDir: 'dist', // or 'build' if you prefer, just match Vercel settings
   },
