@@ -9,6 +9,7 @@ import { Navigate } from "react-router-dom";
 import Logo from "./Logo";
 import Button from "./Button";
 import Input from "./Input";
+import { login } from "../store/authSlice";
 
 export default function SignUpForm() {
     const [error, setError] = useState("");
